@@ -4,8 +4,8 @@ phases:
     commands:
       - pwd
       - ls -lthra
-      - export BUCKET="dev-nelsone-deployment-artifacts-store-us-east-1"
-      - aws cloudformation package --template-file template.yaml --output-template-file packaged-template.yaml --s3-bucket nelsone-dev-artifacts-store-us-east-1 --s3-prefix lambda/lambdaAPI/deploy
+      - export BUCKET="nelsone-dev-artifacts-store-us-east-1"
+      - aws cloudformation package --template-file template.yaml --output-template-file packaged-template.yaml --s3-bucket $BUCKET --s3-prefix lambda/lambdaAPI/deploy
     finally:
       - echo 'done build phase'
   post_build:
