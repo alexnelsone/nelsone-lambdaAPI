@@ -1,10 +1,8 @@
 version: 0.2
 phases:
   install:
-    commands:
-      - echo 'starting install phase'
-      - pwd
-      - ls -lthra
+    runtime-versions:
+      python: 3.8
   build:
     commands:
       - echo starting build
