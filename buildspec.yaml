@@ -4,15 +4,16 @@ phases:
     commands:
       - pwd
       - ls -lthra
-    finally:
-      - echo 'done build phase'
-  build:
-    commands:
       - pip install --upgrade pip
       - pip install pipenv --user
       - pipenv install awscli aws-sam-cli
       - export BUCKET="nelsone-dev-artifacts-store-us-east-1"
       - aws cloudformation package --template-file template.yaml --output-template-file packaged-template.yaml --s3-bucket $BUCKET --s3-prefix lambda/lambdaAPI/deploy
+    finally:
+      - echo 'done build phase'
+  build:
+    commands:
+      - echo starting build
   post_build:
     commands:
       - echo Entered the post_build phase...
