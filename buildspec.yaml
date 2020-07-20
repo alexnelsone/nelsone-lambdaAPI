@@ -7,7 +7,7 @@ phases:
     finally:
       - echo 'done build phase'
   build:
-    commabds:
+    commands:
       - pip install --upgrade pip
       - pip install pipenv --user
       - pipenv install awscli aws-sam-cli
